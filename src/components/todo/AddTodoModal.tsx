@@ -23,7 +23,7 @@ const AddTodoModal = () => {
                 <DialogHeader>
                     <DialogTitle>Edit profile</DialogTitle>
                     <DialogDescription>
-                        Make changes to your profile here. Click save when you're done.
+                        Add your tasks that you want to finish
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
@@ -37,7 +37,7 @@ const AddTodoModal = () => {
                         <Label htmlFor="username" className="text-right">
                             Username
                         </Label>
-                        <Input id="username" value="@peduarte" className="col-span-3" />
+                        <Input id="username" className="col-span-3" />
                     </div>
                 </div>
                 <DialogFooter>
