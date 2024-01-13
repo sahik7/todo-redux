@@ -1,9 +1,10 @@
-import { Button } from "../ui/button";
+import { useAppSelector } from "@/redux/features/hook";
 import AddTodoModal from "./AddTodoModal";
 import TodoCard from "./TodoCard";
 import TodoFilter from "./TodoFilter";
 
 export default function TodoContainer() {
+    const { todos } = useAppSelector(state => state.todos)
     return (
         <div><div className="flex justify-between mb-5">
 
