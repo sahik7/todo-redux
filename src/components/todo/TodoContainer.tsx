@@ -1,13 +1,14 @@
 import { Button } from "../ui/button";
 import AddTodoModal from "./AddTodoModal";
 import TodoCard from "./TodoCard";
+import TodoFilter from "./TodoFilter";
 
 export default function TodoContainer() {
     return (
         <div><div className="flex justify-between mb-5">
 
             <AddTodoModal />
-            <button>Filter</button>
+            <TodoFilter />
         </div>
             <div className="bg-primary-gradient w-full h-full rounded-md p-[3px]">
                 {/* <div className="bg-white p-3 text-center rounded-md text-2xl font-bold"><p>There is no task pending</p></div> */}
