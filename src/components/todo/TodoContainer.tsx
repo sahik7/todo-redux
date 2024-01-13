@@ -1,10 +1,12 @@
 import { Button } from "../ui/button";
+import AddTodoModal from "./AddTodoModal";
 import TodoCard from "./TodoCard";
 
 export default function TodoContainer() {
     return (
         <div><div className="flex justify-between mb-5">
-            <Button className="bg-primary-gradient text-xl font-semibold">Add todo</Button>
+
+            <AddTodoModal />
             <button>Filter</button>
         </div>
             <div className="bg-primary-gradient w-full h-full rounded-md p-[3px]">
