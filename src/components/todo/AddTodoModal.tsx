@@ -2,7 +2,7 @@ import {
     Dialog,
     DialogContent,
     DialogDescription,
-    DialogFooter,
+    DialogClose,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -10,9 +10,17 @@ import {
 import { Button } from "../ui/button";
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { FormEvent, useState } from "react";
 
 
 const AddTodoModal = () => {
+    const [task, setTask] = useState("");
+    const [description, setDescription] = useState("");
+
+    const onSubmit = (e: FormEvent) => {
+        e.preventDefault();
+        console.log(task, description)
+    }
 
     return (
         <Dialog>
@@ -20,29 +28,31 @@ const AddTodoModal = () => {
                 <Button className="bg-primary-gradient text-xl font-semibold">Add todo</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                    <DialogTitle>Edit profile</DialogTitle>
-                    <DialogDescription>
-                        Add your tasks that you want to finish
-                    </DialogDescription>
-                </DialogHeader>
-                <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">
-                            Name
-                        </Label>
-                        <Input id="name" value="Pedro Duarte" className="col-span-3" />
+                <form onSubmit={onSubmit}>
+                    <DialogHeader>
+                        <DialogTitle>Edit profile</DialogTitle>
+                        <DialogDescription>
+                            Add your tasks that you want to finish
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="grid gap-4 py-4">
+                        <div className="grid grid-cols-4 items-center gap-4">
+                            <Label htmlFor="task" className="text-right">
+                                Task
+                            </Label>
+                            <Input id="task" onBlur={(e) => { setTask(e.target.value) }} className="col-span-3" />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                            <Label htmlFor="description" className="text-right">
+                                Description
+                            </Label>
+                            <Input id="description" onBlur={(e) => { setDescription(e.target.value) }} className="col-span-3" />
+                        </div>
                     </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="username" className="text-right">
-                            Username
-                        </Label>
-                        <Input id="username" className="col-span-3" />
-                    </div>
-                </div>
-                <DialogFooter>
-                    <Button type="submit">Save changes</Button>
-                </DialogFooter>
+                    <DialogClose asChild>
+                        <Button type="submit">Save changes</Button>
+                    </DialogClose>
+                </form>
             </DialogContent>
         </Dialog>
     );
