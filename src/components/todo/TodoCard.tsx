@@ -6,15 +6,17 @@ interface ITodoProps {
     id: string;
     title: string;
     description: string;
+    isCompleted: boolean;
 }
 
-const TodoCard = ({ title, description, id }: ITodoProps) => {
+const TodoCard = ({ title, description, id, isCompleted }: ITodoProps) => {
     const dispatch = useAppDispatch()
     return (
         <>
             <div className="bg-white border rounded-md flex justify-between items-center p-3">
                 <input type="checkbox" name="" id="" />
                 <p className="font-semibold">{title}</p>
+                <div className="font-semibold">{isCompleted ? <p className="text-green-500">Done</p> : <p className="text-red-500">Pending</p>}</div>
                 <p>{description}</p>
                 <div className="space-x-5">
                     <Button onClick={() => dispatch(removeTodo(id))} className="bg-red-500"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4 mr-2">
