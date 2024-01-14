@@ -1,7 +1,11 @@
 import { Button } from "../ui/button";
 
+interface ITodoProps {
+    title: string;
+    description: string;
+}
 
-const TodoCard = ({ title, description }) => {
+const TodoCard = ({ title, description }: ITodoProps) => {
     return (
         <>
             <div className="bg-white border rounded-md flex justify-between items-center p-3">
