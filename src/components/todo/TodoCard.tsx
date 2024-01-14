@@ -11,10 +11,14 @@ interface ITodoProps {
 
 const TodoCard = ({ title, description, id, isCompleted }: ITodoProps) => {
     const dispatch = useAppDispatch()
+
+    const handleComplete = () => {
+        console.log("clicked")
+    }
     return (
         <>
             <div className="bg-white border rounded-md flex justify-between items-center p-3">
-                <input type="checkbox" name="" id="" />
+                <input onChange={handleComplete} type="checkbox" name="complete" id="complete" />
                 <p className="font-semibold">{title}</p>
                 <div className="font-semibold">{isCompleted ? <p className="text-green-500">Done</p> : <p className="text-red-500">Pending</p>}</div>
                 <p>{description}</p>

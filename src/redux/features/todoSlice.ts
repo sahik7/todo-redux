@@ -24,6 +24,9 @@ const todoSlice = createSlice({
         },
         removeTodo: (state, action: PayloadAction<string>) => {
             state.todos = state.todos.filter(item => item.id !== action.payload)
+        },
+        toggleComplete: (state, action: PayloadAction<string>){
+
         }
     }
 })
