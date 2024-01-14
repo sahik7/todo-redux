@@ -28,7 +28,14 @@ const todoSlice = createSlice({
         toggleComplete: (state, action: PayloadAction<string>) => {
             const task = state.todos.find(item => item.id === action.payload)
             task!.isCompleted = !task?.isCompleted;
-
+            const index = state.todos.findIndex((todo) => todo.id === action.payload);
+            if (task?.isCompleted) {
+                const [removedItem] = state.todos.splice(index, 1);
+                state.todos.push(removedItem);
+            } else {
+                const [removedItem] = state.todos.splice(index, 1);
+                state.todos.unshift(removedItem);
+            }
         }
     }
 })
