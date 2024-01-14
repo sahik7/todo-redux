@@ -6,6 +6,7 @@ interface ITodoProps {
 }
 
 const TodoCard = ({ title, description }: ITodoProps) => {
+
     return (
         <>
             <div className="bg-white border rounded-md flex justify-between items-center p-3">
