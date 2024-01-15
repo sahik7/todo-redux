@@ -6,7 +6,15 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 import { Button } from "../ui/button";
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -17,9 +25,10 @@ import { useAddTodoMutation } from "@/redux/api/api";
 const AddTodoModal = () => {
     const [task, setTask] = useState("");
     const [description, setDescription] = useState("");
+    const [priority, setPriority] = useState("");
 
-    const [addTodo,] = useAddTodoMutation()
-
+    const [addTodo, object] = useAddTodoMutation()
+    console.log(priority)
     const onSubmit = (e: FormEvent) => {
         e.preventDefault();
 
@@ -29,6 +38,7 @@ const AddTodoModal = () => {
             id: randomString,
             title: task,
             description: description,
+            priority: priority
         }
         addTodo(taskDetails)
     }
@@ -58,6 +68,24 @@ const AddTodoModal = () => {
                                 Description
                             </Label>
                             <Input id="description" onBlur={(e) => { setDescription(e.target.value) }} className="col-span-3" />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                            <Label htmlFor="priority" className="text-right">
+                                Priority
+                            </Label>
+                            <Select onValueChange={(value) => setPriority(value)}>
+                                <SelectTrigger className="col-span-3">
+                                    <SelectValue placeholder="Select your priority" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup>
+                                        <SelectItem value="high">high</SelectItem>
+                                        <SelectItem value="medium">medium</SelectItem>
+                                        <SelectItem value="low">low</SelectItem>
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+                            <Input id="priority" onBlur={(e) => { setDescription(e.target.value) }} className="col-span-3" />
                         </div>
                     </div>
                     <DialogClose asChild>
