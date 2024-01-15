@@ -11,15 +11,14 @@ import { Button } from "../ui/button";
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { FormEvent, useState } from "react";
-import { useAppDispatch } from "@/redux/features/hook";
-import { addTodo } from "@/redux/features/todoSlice";
+import { useAddTodoMutation } from "@/redux/api/api";
 
 
 const AddTodoModal = () => {
     const [task, setTask] = useState("");
     const [description, setDescription] = useState("");
-    const dispatch = useAppDispatch()
 
+    const [addTodo,] = useAddTodoMutation()
 
     const onSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -31,7 +30,7 @@ const AddTodoModal = () => {
             title: task,
             description: description,
         }
-        dispatch(addTodo(taskDetails))
+        addTodo(taskDetails)
     }
 
     return (
