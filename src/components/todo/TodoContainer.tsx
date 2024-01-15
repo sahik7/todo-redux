@@ -6,7 +6,7 @@ import TodoFilter from "./TodoFilter";
 export default function TodoContainer() {
     // const { todos } = useAppSelector(state => state.todos)
 
-    const { data: todos } = useGetTodosQuery()
+    const { data: todos, isLoading, isError } = useGetTodosQuery(undefined)
     return (
         <div><div className="flex justify-between mb-5">
 
