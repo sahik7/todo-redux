@@ -6,7 +6,7 @@ export const baseApi = createApi({
     reducerPath: 'baseApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
     endpoints: (builder) => ({
-        getTodos: builder.query<Pokemon, string>({
+        getTodos: builder.query({
             query: () => `tasks`,
         }),
     }),
