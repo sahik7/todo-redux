@@ -32,13 +32,11 @@ const AddTodoModal = () => {
     const onSubmit = (e: FormEvent) => {
         e.preventDefault();
 
-        const randomString = Math.random().toString(36).substring(2, 9);
-
         const taskDetails = {
-            id: randomString,
             title: task,
             description: description,
-            priority: priority
+            isCompleted: false,
+            priority
         }
         addTodo(taskDetails)
     }
@@ -85,7 +83,6 @@ const AddTodoModal = () => {
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>
-                            <Input id="priority" onBlur={(e) => { setDescription(e.target.value) }} className="col-span-3" />
                         </div>
                     </div>
                     <DialogClose asChild>
