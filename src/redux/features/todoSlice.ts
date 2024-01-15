@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface ITodo {
+export interface ITodo {
     id: string;
+    isCompleted: boolean;
     title: string;
     description: string;
-    isCompleted?: boolean;
-}
+    dateTime: string;
+    priority: "high" | "medium" | "low";
+};
 
 interface IInitialState {
     todos: ITodo[]
