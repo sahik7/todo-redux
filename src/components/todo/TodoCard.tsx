@@ -22,7 +22,10 @@ const TodoCard = ({ title, description, id, isCompleted, priority }: ITodoProps)
                 <input onChange={handleComplete} type="checkbox" name="complete" id="complete" />
                 <p className="ml-3 font-semibold flex-1">{title}</p>
                 <div className="flex-1 items-center flex space-x-2">
-                    <div className="size-2 rounded-full bg-rose-500"></div>
+                    <div className={`size-2 rounded-full ${priority === "high" && "bg-amber-500"}
+                    ${priority === "medium" && "bg-violet-500"}
+                    ${priority === "low" && "bg-lime-500"}
+                    `}></div>
                     <p>{priority}</p>
                 </div>
                 <div className="font-semibold flex-1">{isCompleted ? <p className="text-green-500">Done</p> : <p className="text-red-500">Pending</p>}</div>
