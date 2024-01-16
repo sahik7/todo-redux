@@ -31,10 +31,6 @@ const AddTodoModal = () => {
     const onSubmit = (e: FormEvent) => {
         e.preventDefault();
         const randomNumericId = (Math.floor(Math.random() * 9000) + 1000).toString();
-
-        console.log("main id", randomNumericId)
-
-
         const taskDetails = {
             _id: randomNumericId,
             title: task,

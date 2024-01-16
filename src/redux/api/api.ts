@@ -9,7 +9,6 @@ export const baseApi = createApi({
     endpoints: (builder) => ({
         getTodos: builder.query({
             query: (priority) => {
-                console.log(priority)
                 return {
                     url: `/tasks?priority=${priority}`,
                     method: 'GET'
