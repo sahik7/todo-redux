@@ -6,7 +6,7 @@ import { ITodo } from "@/redux/features/todoSlice";
 import { useState } from "react";
 
 export default function TodoContainer() {
-    const [priority, setPriority] = useState()
+    const [priority, setPriority] = useState("")
 
     const { data: todos, isLoading } = useGetTodosQuery(priority)
     if (isLoading) {
