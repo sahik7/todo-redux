@@ -1,4 +1,3 @@
-import { useAppDispatch } from "@/redux/features/hook";
 import { Button } from "../ui/button";
 import { useDeleteTodoMutation, useUpdateTodoMutation } from "@/redux/api/api";
 
@@ -12,7 +11,7 @@ interface ITodoProps {
 
 const TodoCard = ({ title, description, id, isCompleted, priority }: ITodoProps) => {
     const [deleteTodo, object] = useDeleteTodoMutation()
-    const [deleteTodo, object] = useUpdateTodoMutation()
+    const [updateTodo, object] = useUpdateTodoMutation()
 
     const handleComplete = () => {
         // dispatch(toggleComplete(id))
