@@ -8,7 +8,6 @@ export default function TodoContainer() {
     // const { todos } = useAppSelector(state => state.todos)
 
     const { data: todos, isLoading, isError } = useGetTodosQuery(undefined)
-    console.log(todos)
     if (isLoading) {
         return <p className="text-3xl text-blue-700 text-center">Loading...</p>
     }
@@ -22,7 +21,7 @@ export default function TodoContainer() {
                 {/* <div className="bg-white p-3 text-center rounded-md text-2xl font-bold"><p>There is no task pending</p></div> */}
                 <div className="bg-white  space-y-5 rounded-md p-3 w-full h-full">
                     {
-                        todos?.data?.map((todo: ITodo) => <TodoCard key={todo.id} id={todo.id} title={todo.title} description={todo.description} isCompleted={todo.isCompleted} priority={todo.priority} />)
+                        todos?.data?.map((todo: ITodo) => <TodoCard key={todo._id} id={todo._id} title={todo.title} description={todo.description} isCompleted={todo.isCompleted} priority={todo.priority} />)
                     }
                 </div>
             </div>

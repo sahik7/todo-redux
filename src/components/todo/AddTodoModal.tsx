@@ -28,11 +28,15 @@ const AddTodoModal = () => {
     const [priority, setPriority] = useState("");
 
     const [addTodo, object] = useAddTodoMutation()
-    console.log(priority)
     const onSubmit = (e: FormEvent) => {
         e.preventDefault();
+        const randomNumericId = (Math.floor(Math.random() * 9000) + 1000).toString();
+
+        console.log("main id", randomNumericId)
+
 
         const taskDetails = {
+            _id: randomNumericId,
             title: task,
             description: description,
             isCompleted: false,
