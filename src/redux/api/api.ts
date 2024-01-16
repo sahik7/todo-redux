@@ -9,7 +9,7 @@ export const baseApi = createApi({
     endpoints: (builder) => ({
         getTodos: builder.query({
             query: (priority) => ({
-                url: `/tasks?priority=${}`,
+                url: `/tasks?priority=${priority}`,
                 method: 'GET'
             }),
             providesTags: ["todo"]
