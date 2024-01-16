@@ -14,6 +14,13 @@ const TodoCard = ({ title, description, id, isCompleted, priority }: ITodoProps)
     const [updateTodo, object] = useUpdateTodoMutation()
 
     const updateHandle = () => {
+        const updatedTask = {
+            title,
+            description,
+            priority,
+            isCompleted: !isCompleted,
+        }
+        console.log(updatedTask)
 
     }
     return (
