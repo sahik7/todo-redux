@@ -8,8 +8,8 @@ export const baseApi = createApi({
     tagTypes: ["todo"],
     endpoints: (builder) => ({
         getTodos: builder.query({
-            query: () => ({
-                url: "/tasks?",
+            query: (priority) => ({
+                url: `/tasks?priority=${}`,
                 method: 'GET'
             }),
             providesTags: ["todo"]
