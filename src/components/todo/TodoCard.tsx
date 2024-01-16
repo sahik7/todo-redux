@@ -11,7 +11,7 @@ interface ITodoProps {
 
 const TodoCard = ({ title, description, id, isCompleted, priority }: ITodoProps) => {
     const [deleteTodo, object] = useDeleteTodoMutation()
-    const [updateTodo, object] = useUpdateTodoMutation()
+    const [updateTodo, Data] = useUpdateTodoMutation()
 
     const updateHandle = () => {
         const updatedTask = {
@@ -26,7 +26,7 @@ const TodoCard = ({ title, description, id, isCompleted, priority }: ITodoProps)
     return (
         <>
             <div className="bg-white border rounded-md flex justify-between items-center p-3">
-                <input onChange={handleComplete} type="checkbox" name="complete" id="complete" />
+                <input onChange={updateHandle} type="checkbox" name="complete" id="complete" />
                 <p className="ml-3 font-semibold flex-1">{title}</p>
                 <div className="flex-1 items-center flex space-x-2">
                     <div className={`size-2 rounded-full ${priority === "high" && "bg-amber-500"}
