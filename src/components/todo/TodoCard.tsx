@@ -11,7 +11,7 @@ interface ITodoProps {
 
 const TodoCard = ({ title, description, id, isCompleted, priority }: ITodoProps) => {
     const [deleteTodo, object] = useDeleteTodoMutation()
-    const [updateTodo, Data] = useUpdateTodoMutation()
+    const [updateTodo, { isLoading }] = useUpdateTodoMutation()
 
     const updateHandle = () => {
         const updatedTask = {
