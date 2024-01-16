@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 const TodoFilter = ({ priority, setPriority }) => {
-
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
