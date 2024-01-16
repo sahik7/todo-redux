@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function TodoContainer() {
     const [priority, setPriority] = useState()
 
-    const { data: todos, isLoading } = useGetTodosQuery(undefined)
+    const { data: todos, isLoading } = useGetTodosQuery(priority)
     if (isLoading) {
         return <p className="text-3xl text-blue-700 text-center">Loading...</p>
     }
